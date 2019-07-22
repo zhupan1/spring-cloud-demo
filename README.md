@@ -13,3 +13,6 @@
  * [配置中心地址] [https://github.com/zhupan1/spring-config]
  
  spring cloud使用版本：Greenwich.SR2
+ 
+ 启动方式：
+    分别启动各模块启动类。项目将在本地运行
