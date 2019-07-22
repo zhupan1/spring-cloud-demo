@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhupan1/spring-config
+          search-paths: config
+          skip-ssl-validation: true
+      label: master
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
