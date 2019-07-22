@@ -3,6 +3,7 @@
  
  
  #### 项目结构
+ #### spring-cloud-demo
  ##### 1、config-server 配置中心
  ##### 2、eureka-server 注册中心
  ##### 3、user-service 用户服务
@@ -10,3 +11,5 @@
  
  * [项目地址] [https://github.com/zhupan1/spring-cloud-demo]
  * [配置中心地址] [https://github.com/zhupan1/spring-config]
+ 
+ spring cloud使用版本：Greenwich.SR2
