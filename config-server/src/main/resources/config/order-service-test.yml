@@ -1,0 +1,12 @@
+server:
+  port: 8882
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+feign:
+  userService: user-service
+
+description: 订单服务(test分支)
