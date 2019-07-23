@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @Value("${project.description}")
+    @Value("${description}")
     private String description;
 
 

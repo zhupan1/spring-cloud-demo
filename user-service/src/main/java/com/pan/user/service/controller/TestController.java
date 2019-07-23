@@ -18,7 +18,7 @@ import com.pan.user.service.service.FeignService;
 @RequestMapping(value = "user")
 public class TestController {
 
-	@Value("${project.description}")
+	@Value("${description}")
 	private String description;
 
 	@Autowired
