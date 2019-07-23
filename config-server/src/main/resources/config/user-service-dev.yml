@@ -6,6 +6,27 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/
 
+spring:
+  datasource:
+    druid:
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: root
+      initial-size: 50
+      max-active: 2000
+      max-wait: 60000
+      max-pool-prepared-statement-per-connection-size: 20
+      min-idle: 50
+      min-evictable-idle-time-millis: 300000
+      use-global-data-source-stat: true
+
+mybatis:
+  mapper-locations: classpath*:com/pan/user/service/dao/mapper/*Mapper.xml
+  type-aliases-package: com.pan.user.service.entity
+  config-location: classpath:mybatis-config.xml
+
 feign:
   orderService: order-service
 

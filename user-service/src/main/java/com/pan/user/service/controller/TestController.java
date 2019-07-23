@@ -1,5 +1,6 @@
 package com.pan.user.service.controller;
 
+import com.pan.user.service.entity.TestModel;
 import com.pan.user.service.feign.FeignOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,8 @@ public class TestController {
 	public String test() {
 		String title = testService.getTestString();
 		String order = feignOrderService.getByOrderService();
-		return "用户服务：" + title + "调用" + order;
+		TestModel testModel = testService.getUserInfo();
+
+		return "用户服务：" + title + testModel.toString() + "调用" + order;
 	}
 }

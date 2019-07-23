@@ -1,6 +1,9 @@
 package com.pan.user.service.service.impl;
 
+import com.pan.user.service.dao.TestDao;
+import com.pan.user.service.entity.TestModel;
 import com.pan.user.service.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +19,19 @@ public class TestServiceImpl implements TestService {
     @Value("${description}")
     private String description;
 
+    @Autowired
+    private TestDao testDao;
+
+
     @Override
     public String getTestString() {
         return description;
     }
+
+
+    @Override
+    public TestModel getUserInfo() {
+        return testDao.getUserInfo();
+    }
+
 }
