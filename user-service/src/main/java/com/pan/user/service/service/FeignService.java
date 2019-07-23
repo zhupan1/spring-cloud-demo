@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(value = "${feign.orderService}")
 public interface FeignService {
 
-
-
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     String getByOrderService();
 

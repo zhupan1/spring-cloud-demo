@@ -1,10 +1,11 @@
 spring:
   cloud:
     config:
-      label: master
-      profile: dev
       discovery:
         enabled: true
         service-id: user-service
   application:
     name: user-service
+    
+project:
+  description: order-service
