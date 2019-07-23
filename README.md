@@ -4,13 +4,33 @@
  
  #### 项目结构
  #### spring-cloud-demo
- ##### 1、config-server 配置中心
- ##### 2、eureka-server 注册中心
- ##### 3、user-service 用户服务
- ##### 4、order-service 订单服务
+ ##### 一、config-server 配置中心
+   ###### ---------profiles: 不同环境配置文件夹
+   ###### ---------resource: 资源文件夹
+   ###### ---------------------config: 各服务不同环境配置文件   
+ ##### 二、eureka-server 注册中心
+ ##### 三、user-service 用户服务
+   ###### ---------common: 公共文件
+   ###### ---------controller: 控制层
+   ###### ---------dao: 数据持久层
+   ###### ----------------------mapper: 数据持久sql文件 
+   ###### ---------entity: 实体类
+   ###### ---------feign: 服务调用模块 
+   ###### ----------------------expose: 对外暴露本服务接口模块 
+   ###### ----------------------Feign***Service: 外部服务接口调用接口 
+   ###### ---------service: 业务层 
+ ##### 四、order-service 订单服务
+   ###### ---------common: 公共文件
+   ###### ---------controller: 控制层
+   ###### ---------dao: 数据持久层
+   ###### ----------------------mapper: 数据持久sql文件 
+   ###### ---------entity: 实体类
+   ###### ---------feign: 服务调用模块 
+   ###### ----------------------expose: 对外暴露本服务接口模块 
+   ###### ----------------------Feign***Service: 外部服务接口调用接口 
+   ###### ---------service: 业务层
  
  * [项目地址] [https://github.com/zhupan1/spring-cloud-demo]
- * [配置中心地址] [https://github.com/zhupan1/spring-config]
  
  spring cloud使用版本：Greenwich.SR2
  
@@ -18,5 +38,5 @@
     分别启动各模块启动类。项目将在本地运行
  
  测试接口：
-    localhost:8881/test
+    localhost:8881/user/test
  目前用的是dev配置

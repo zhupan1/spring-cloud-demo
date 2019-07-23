@@ -1,12 +1,12 @@
 package com.pan.user.service.controller;
 
+import com.pan.user.service.feign.FeignOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pan.user.service.service.FeignService;
+import com.pan.user.service.service.TestService;
 
 /**
  * @Description
@@ -15,18 +15,20 @@ import com.pan.user.service.service.FeignService;
  * @Copyright (c) gome inc Gome Co.,LTD
  */
 @RestController
-@RequestMapping(value = "user")
+@RequestMapping(value = "/user/")
 public class TestController {
 
-	@Value("${description}")
-	private String description;
 
 	@Autowired
-	private FeignService feignService;
+	private TestService testService;
+
+	@Autowired
+	private FeignOrderService feignOrderService;
 
 	@GetMapping(value = "test")
 	public String test() {
-		String title = feignService.getByOrderService();
-		return "用户服务：" + description + "调用" + title;
+		String title = testService.getTestString();
+		String order = feignOrderService.getByOrderService();
+		return "用户服务：" + title + "调用" + order;
 	}
 }

@@ -4,15 +4,14 @@ server:
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/zhupan1/spring-config
-          search-paths: config
-          skip-ssl-validation: true
-        bootstrap: true
-      label: master
+        native:
+          search-locations: classpath:/config
+
 
 eureka:
   client:

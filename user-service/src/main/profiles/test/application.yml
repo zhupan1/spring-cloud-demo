@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: user-service
   cloud:
     config:
       label: master
@@ -6,5 +8,3 @@ spring:
       discovery:
         enabled: true
         service-id: user-service
-  application:
-    name: user-service

@@ -4,9 +4,9 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://127.0.0.1:8762/eureka/
 
 feign:
   userService: user-service
 
-description: 订单服务(test分支)
+description: 订单服务(测试环境)
