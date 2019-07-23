@@ -5,17 +5,14 @@
     <parent>
         <groupId>com.pan</groupId>
         <artifactId>spring-cloud-demo</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.pan</groupId>
     <artifactId>config-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>config-server</name>
-    <packaging>jar</packaging>
-
+    
     <properties>
-        <profile.dir>src/main/profiles</profile.dir>
+        <profiles.dir>src/main/profiles</profiles.dir>
     </properties>
 
     <dependencies>
@@ -39,60 +36,51 @@
         <profile>
             <id>dev</id>
             <properties>
-                <profile.dir>${profile.dir}/dev</profile.dir>
+                <profile.dir>${profiles.dir}/dev</profile.dir>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>${profile.dir}</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
         </profile>
-
         <profile>
             <id>test</id>
             <properties>
-                <profile.dir>${profile.dir}/test</profile.dir>
+                <profile.dir>${profiles.dir}/test</profile.dir>
             </properties>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>${profile.dir}</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
         </profile>
-
         <profile>
             <id>master</id>
             <properties>
-                <profile.dir>${profile.dir}/master</profile.dir>
+                <profile.dir>${profiles.dir}/master</profile.dir>
             </properties>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>${profile.dir}</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                </resources>
-            </build>
         </profile>
     </profiles>
 
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+			</resource>
+			<resource>
+				<directory>${profile.dir}</directory>
+				<filtering>true</filtering>
+				<targetPath>${project.build.directory}/conf</targetPath>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<targetPath>${project.build.directory}/conf</targetPath>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
