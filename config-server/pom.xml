@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.pan</groupId>
-        <artifactId>spring-cloud-demo</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.pan</groupId>
+		<artifactId>spring-cloud-demo</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
 
-    <artifactId>config-server</artifactId>
-    <name>config-server</name>
-    
-    <properties>
-        <profiles.dir>src/main/profiles</profiles.dir>
-    </properties>
+	<artifactId>config-server</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <profile.dir>${profiles.dir}/dev</profile.dir>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <profile.dir>${profiles.dir}/test</profile.dir>
-            </properties>
-        </profile>
-        <profile>
-            <id>master</id>
-            <properties>
-                <profile.dir>${profiles.dir}/master</profile.dir>
-            </properties>
-        </profile>
-    </profiles>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profile.dir>${profiles.dir}/dev</profile.dir>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<profile.dir>${profiles.dir}/test</profile.dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>product</id>
+			<properties>
+				<profile.dir>${profiles.dir}/product</profile.dir>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<resources>
@@ -64,14 +60,12 @@
 			<resource>
 				<directory>${profile.dir}</directory>
 				<filtering>true</filtering>
-				<targetPath>${project.build.directory}/conf</targetPath>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*</include>
 				</includes>
-				<targetPath>${project.build.directory}/conf</targetPath>
 				<filtering>true</filtering>
 			</resource>
 		</resources>

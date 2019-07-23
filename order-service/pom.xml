@@ -12,10 +12,6 @@
 
 	<artifactId>order-service</artifactId>
 
-	<properties>
-		<profiles.dir>src/main/profiles</profiles.dir>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -53,9 +49,9 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>master</id>
+			<id>product</id>
 			<properties>
-				<profile.dir>${profiles.dir}/master</profile.dir>
+				<profile.dir>${profiles.dir}/product</profile.dir>
 			</properties>
 		</profile>
 	</profiles>
@@ -68,14 +64,12 @@
 			<resource>
 				<directory>${profile.dir}</directory>
 				<filtering>true</filtering>
-				<targetPath>${project.build.directory}/conf</targetPath>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*</include>
 				</includes>
-				<targetPath>${project.build.directory}/conf</targetPath>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
