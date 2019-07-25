@@ -24,7 +24,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:com/pan/user/service/dao/mapper/*Mapper.xml
-  type-aliases-package: com.pan.user.service.entity
+  type-aliases-package: classpath:com.pan.modle.service.entity
   config-location: classpath:mybatis-config.xml
 
 feign:
