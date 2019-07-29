@@ -1,13 +1,14 @@
 package com.pan.user.service.controller;
 
-import com.pan.user.service.entity.TestModel;
+import com.pan.model.service.entity.UserModel;
 import com.pan.user.service.feign.FeignOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pan.user.service.service.TestService;
+import com.pan.user.service.service.UserService;
 
 /**
  * @Description
@@ -17,21 +18,27 @@ import com.pan.user.service.service.TestService;
  */
 @RestController
 @RequestMapping(value = "/user/")
-public class TestController {
+public class UserController {
+
+
+	@Value(value = "${description}")
+	private String description;
 
 
 	@Autowired
-	private TestService testService;
+	private UserService userService;
 
 	@Autowired
 	private FeignOrderService feignOrderService;
 
+
+
 	@GetMapping(value = "test")
 	public String test() {
-		String title = testService.getTestString();
+		// 获取用户信息
+		UserModel userModel = userService.getUserInfo();
+		// 调用订单服务
 		String order = feignOrderService.getByOrderService();
-		TestModel testModel = testService.getUserInfo();
-
-		return "用户服务：" + title + testModel.toString() + "调用" + order;
+		return "用户服务：" + description + userModel.toString() + "调用" + order;
 	}
 }

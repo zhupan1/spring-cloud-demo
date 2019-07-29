@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @Date: 23/07/2019 17:02
  * @Description: feign-用户服务接口
  */
-@FeignClient(value = "${feign.userService}", path = "/user-service/")
+@FeignClient(value = "${feign.userService}", path = "/user/")
 public interface FeignUserService {
 
 

@@ -1,8 +1,10 @@
 package com.pan.order.service.controller;
 
+import com.pan.model.service.entity.OrderModel;
 import com.pan.order.service.feign.FeignUserService;
-import com.pan.order.service.service.TestService;
+import com.pan.order.service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,18 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/order/")
-public class TestController {
+public class OrderController {
+
+
+    @Value("${description}")
+    private String description;
 
     @Autowired
-    private TestService testService;
+    private OrderService orderService;
 
-    @Autowired
-    private FeignUserService feignUserService;
 
     @GetMapping(value = "test")
     public String test() {
-        String title = testService.getTestString();
-        String user = feignUserService.expose();
-        return "用户服务：" + user + "调用" + title;
+        OrderModel orderModel = orderService.getOrderInfo();
+        return "订单服务：" + orderModel.toString() + description;
     }
 }
