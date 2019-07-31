@@ -28,6 +28,9 @@ mybatis:
   config-location: classpath:mybatis-config.xml
 
 feign:
-  orderService: order-service
+  hystrix:
+    enabled: true
+
+orderService: order-service
 
 description: 我(开发环境)是

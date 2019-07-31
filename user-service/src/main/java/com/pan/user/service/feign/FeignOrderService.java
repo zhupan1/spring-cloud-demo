@@ -1,5 +1,6 @@
 package com.pan.user.service.feign;
 
+import com.pan.user.service.common.util.OrderServiceHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @Date: 23/07/2019 17:02
  * @Description: feign-订单服务接口
  */
-@FeignClient(value = "${feign.orderService}", path = "/order/")
+@FeignClient(value = "${orderService}", path = "/order/", fallback = OrderServiceHystrix.class)
 public interface FeignOrderService {
 
 
