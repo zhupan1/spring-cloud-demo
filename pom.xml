@@ -21,6 +21,7 @@
 		<module>user-service</module>
 		<module>order-service</module>
 		<module>model-service</module>
+		<module>zuul-server</module>
 	</modules>
 
 	<properties>
