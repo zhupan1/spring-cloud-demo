@@ -21,24 +21,23 @@ import com.pan.user.service.service.UserService;
 public class UserController {
 
 
-	@Value(value = "${description}")
-	private String description;
+    @Value(value = "${description}")
+    private String description;
 
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@Autowired
-	private FeignOrderService feignOrderService;
+    @Autowired
+    private FeignOrderService feignOrderService;
 
 
-
-	@GetMapping(value = "test")
-	public String test() {
-		// 获取用户信息
-		UserModel userModel = userService.getUserInfo();
-		// 调用订单服务
-		String order = feignOrderService.getByOrderService();
-		return "用户服务：" + description + userModel.toString() + "调用" + order;
-	}
+    @GetMapping(value = "test")
+    public String test() {
+        // 获取用户信息
+        UserModel userModel = userService.getUserInfo();
+        // 调用订单服务
+        String order = feignOrderService.getByOrderService();
+        return "用户服务：" + description + userModel.toString() + "调用" + order;
+    }
 }

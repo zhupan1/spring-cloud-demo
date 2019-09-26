@@ -15,6 +15,7 @@ public interface FeignOrderService {
 
     /**
      * 测试订单服务接口
+     *
      * @return 字符串
      */
     @GetMapping(value = "test")

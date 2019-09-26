@@ -19,5 +19,4 @@ public class OrderServiceHystrix implements FeignOrderService {
     }
 
 
-
 }

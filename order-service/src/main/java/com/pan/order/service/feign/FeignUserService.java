@@ -14,6 +14,7 @@ public interface FeignUserService {
 
     /**
      * 测试用户服务接口
+     *
      * @return 字符串
      */
     @GetMapping(value = "test")

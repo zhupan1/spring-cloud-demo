@@ -13,6 +13,7 @@ public interface UserService {
 
     /**
      * 获取用户信息
+     *
      * @return
      */
     UserModel getUserInfo();
